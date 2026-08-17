@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "algorithm": "sha256",
+  "files": [
+    {"path": "data/benchmark/adult.data", "bytes": 3974305, "sha256": "5b00264637dbfec36bdeaab5676b0b309ff9eb788d63554ca0a249491c86603d"},
+    {"path": "data/benchmark/adult.test", "bytes": 2003153, "sha256": "a2a9044bc167a35b2361efbabec64e89d69ce82d9790d2980119aac5fd7e9c05"},
+    {"path": "data/benchmark/atlanta_ces.csv", "bytes": 1196553, "sha256": "8fe5becc589dccfe97d85f7c3c908e2b5a9d5ec8d5edb7c4c7b8af05ba9affca"},
+    {"path": "data/benchmark/auto-mpg.data", "bytes": 30286, "sha256": "48b830e11feee5572525f8f1691ddb9d38d3d7b7063edcd8fca672c2a5e17d8d"},
+    {"path": "data/benchmark/california_housing.tgz", "bytes": 441963, "sha256": "aaa5c9a6afe2225cc2aed2723682ae403280c4a3695a2ddda4ffb5d8215ea681"},
+    {"path": "data/benchmark/iris.data", "bytes": 4551, "sha256": "6f608b71a7317216319b4d27b4d9bc84e6abd734eda7872b71a458569e2656c0"},
+    {"path": "data/benchmark/penguins.csv", "bytes": 13478, "sha256": "e07636bd8af74260099ea2f8678e2eabbf35def579940cc76f67061ee16c06c1"},
+    {"path": "data/benchmark/simpson_paradox_data.csv", "bytes": 41054, "sha256": "e7e52608b9fa97325b0c4edcfdfb51dd9055244b3eafdd8278279bf3b2dbdaaf"},
+    {"path": "data/new_sp/CarbonMonitor_Global_PM_corT.csv", "bytes": 26353479, "sha256": "ceb8b7596d898b565ee2d7a02b9ce30984a99e3c967137e68c70cbd1cd23da20"},
+    {"path": "data/new_sp/pnas_biodiversity/README.csv", "bytes": 5557, "sha256": "3fd6979135d33f6b6655f4c65155857c594f0055efea98fcbc61919da51c05a5"},
+    {"path": "data/new_sp/pnas_biodiversity/Simkin_et_al_2016_data_from_PNAS_Div_and_N_dep.csv", "bytes": 2497370, "sha256": "56e5b6841bf3b5c7da9b39d2a6fad18cb92868d471628bf10cd26ca68cfb5eca"},
+    {"path": "data/new_sp/soil_nematodes/nematode_abundance_metadata.csv", "bytes": 1568360, "sha256": "6a64a516336b368f2834ce676030017ec4743b4f068eb3ae7e7ecf781f8b9689"},
+    {"path": "data/new_sp/soil_nematodes/nematode_biome_summary.csv", "bytes": 699, "sha256": "d6d6fae905ce5f88a6a0847d02503a47e851a18ffe7dbbb648ce597f65feb5aa"},
+    {"path": "data/new_sp/soil_nematodes/nematode_trophic_by_biome.csv", "bytes": 1170, "sha256": "5e1099bbace57d429472a2f2bdfada859f558c79e7f403ebee39c6b7318846d9"}
+  ]
+}
