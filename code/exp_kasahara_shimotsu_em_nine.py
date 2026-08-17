@@ -1,4 +1,4 @@
-"""Kasahara--Shimotsu (2015) modified penalized-EM test on nine datasets.
+"""Kasahara--Shimotsu (2015) modified penalized-EM test on eight datasets.
 
 This implements their formal test of homogeneity (m=1) against a
 two-component normal mixture regression (m=2), specialized to the scalar
@@ -48,7 +48,6 @@ LOADERS = [
     R.load_iris,
     R.load_penguins,
     R.load_atlanta,
-    R.load_adult,
     R.load_power,
     R.load_nematodes,
     R.load_ca_housing,

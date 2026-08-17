@@ -14,6 +14,6 @@ the journal's requested `reproducibility_materials.zip`, together with the
 permitted data, output files needed to verify manuscript claims, and workflow
 documentation. Submit the completed ACC PDF separately.
 
-The historical California Housing full-design KS result must be regenerated
-with the corrected four-predictor implementation before the final materials
-are deposited or submitted; see `README.md`.
+The California Housing full-design KS benchmark has been rerun with the
+corrected four-predictor implementation. The maintained workflow reproduces
+that result; see `README.md`.

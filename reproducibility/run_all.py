@@ -16,6 +16,15 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 HERE = Path(__file__).resolve().parent
 ALL_STAGES = ("synthetic", "robustness", "realdata", "benchmarks", "figures")
+KS_FOCAL_DATASETS = (
+    "Taylor",
+    "Iris",
+    "Penguins",
+    "Atlanta CES",
+    "Power",
+    "Nematodes",
+    "Nitrogen deposition",
+)
 
 
 def command_specs(mode: str, stages: set[str], run_dir: Path):
@@ -50,7 +59,7 @@ def command_specs(mode: str, stages: set[str], run_dir: Path):
                 [
                     ("real-stage1", [py, "code/exp_realworld_robust.py", "--project-root", str(ROOT), "--out-dir", str(results), "--quick", "--datasets", "Iris"]),
                     ("binary-remedy", [py, "code/exp_categorical_pooled_remedy.py", "--project-root", str(ROOT), "--out-dir", str(results), "--passes", "5", "--seeds", "2", "--datasets", "Taylor"]),
-                    ("real-screen", [py, "code/exp_realworld_K2_rigorous.py", "--quick", "--out-dir", str(results), "--datasets", "Iris"]),
+                    ("real-screen", [py, "code/exp_realworld_K2_rigorous.py", "--quick", "--skip-detection", "--out-dir", str(results), "--datasets", "Iris"]),
                 ]
             )
         else:
@@ -58,7 +67,7 @@ def command_specs(mode: str, stages: set[str], run_dir: Path):
                 [
                     ("real-stage1", [py, "code/exp_realworld_robust.py", "--project-root", str(ROOT), "--out-dir", str(results)]),
                     ("binary-remedy", [py, "code/exp_categorical_pooled_remedy.py", "--project-root", str(ROOT), "--out-dir", str(results)]),
-                    ("real-screen", [py, "code/exp_realworld_K2_rigorous.py", "--out-dir", str(results)]),
+                    ("real-screen", [py, "code/exp_realworld_K2_rigorous.py", "--skip-detection", "--out-dir", str(results)]),
                 ]
             )
 
@@ -66,6 +75,7 @@ def command_specs(mode: str, stages: set[str], run_dir: Path):
         if mode == "quick":
             specs.extend(
                 [
+                    ("sp-discovery-benchmarks", [py, "code/exp_sp_benchmark_audit.py", "--out-dir", str(results / "sp_benchmark_audit")]),
                     ("ks-em", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--datasets", "Iris", "--boot", "3", "--restarts", "2", "--max-iter", "15", "--suffix", "quick"]),
                     ("ks-em-ca-full-x", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--datasets", "CA Housing", "--full-x", "--boot", "0", "--restarts", "1", "--max-iter", "5", "--suffix", "ca_fullx_quick"]),
                     ("em-bic", [py, "code/exp_conventional_em_detection_nine.py", "--out-dir", str(results), "--datasets", "Iris", "--boot", "0", "--observed-restarts", "2", "--max-iter", "30", "--suffix", "quick"]),
@@ -74,8 +84,9 @@ def command_specs(mode: str, stages: set[str], run_dir: Path):
         else:
             specs.extend(
                 [
-                    ("ks-em", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--restarts", "4", "--max-iter", "40"]),
-                    ("ks-em-ca-full-x", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--datasets", "CA Housing", "--full-x", "--restarts", "4", "--max-iter", "40", "--suffix", "ca_fullx"]),
+                    ("sp-discovery-benchmarks", [py, "code/exp_sp_benchmark_audit.py", "--out-dir", str(results / "sp_benchmark_audit")]),
+                    ("ks-em", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--datasets", *KS_FOCAL_DATASETS, "--restarts", "4", "--max-iter", "40"]),
+                    ("ks-em-ca-full-x", [py, "code/exp_kasahara_shimotsu_em_nine.py", "--out-dir", str(results), "--datasets", "CA Housing", "--full-x", "--restarts", "4", "--max-iter", "40", "--jobs", str(min(8, os.cpu_count() or 1)), "--suffix", "ca_fullx"]),
                     ("em-bic", [py, "code/exp_conventional_em_detection_nine.py", "--out-dir", str(results), "--boot", "0", "--suffix", "em_bic_final"]),
                 ]
             )

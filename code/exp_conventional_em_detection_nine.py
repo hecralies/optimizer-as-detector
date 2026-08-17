@@ -1,4 +1,4 @@
-"""Conventional EM detection benchmarks on the nine real datasets.
+"""Conventional EM detection benchmarks on the eight real datasets.
 
 For each dataset, fit homogeneous (m=1) and homoscedastic two-component
 (m=2) normal mixture regressions using the same Stage-1 predictor design as
@@ -48,7 +48,6 @@ LOADERS = [
     R.load_iris,
     R.load_penguins,
     R.load_atlanta,
-    R.load_adult,
     R.load_power,
     R.load_nematodes,
     R.load_ca_housing,

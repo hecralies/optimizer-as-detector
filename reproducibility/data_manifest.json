@@ -2,8 +2,6 @@
   "schema_version": 1,
   "algorithm": "sha256",
   "files": [
-    {"path": "data/benchmark/adult.data", "bytes": 3974305, "sha256": "5b00264637dbfec36bdeaab5676b0b309ff9eb788d63554ca0a249491c86603d"},
-    {"path": "data/benchmark/adult.test", "bytes": 2003153, "sha256": "a2a9044bc167a35b2361efbabec64e89d69ce82d9790d2980119aac5fd7e9c05"},
     {"path": "data/benchmark/atlanta_ces.csv", "bytes": 1196553, "sha256": "8fe5becc589dccfe97d85f7c3c908e2b5a9d5ec8d5edb7c4c7b8af05ba9affca"},
     {"path": "data/benchmark/auto-mpg.data", "bytes": 30286, "sha256": "48b830e11feee5572525f8f1691ddb9d38d3d7b7063edcd8fca672c2a5e17d8d"},
     {"path": "data/benchmark/california_housing.tgz", "bytes": 441963, "sha256": "aaa5c9a6afe2225cc2aed2723682ae403280c4a3695a2ddda4ffb5d8215ea681"},

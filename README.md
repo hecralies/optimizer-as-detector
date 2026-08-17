@@ -15,8 +15,8 @@ python reproducibility/run_all.py --check
 ```
 
 The check records package versions and verifies the SHA-256 digest of every
-curated input. It does not use the network. To additionally parse all nine
-datasets (including the slower CarbonMonitor transformation), run
+curated input. It does not use the network. To additionally parse all eight
+manuscript datasets (including the slower CarbonMonitor transformation), run
 `python reproducibility/check_reproducibility.py --loaders`.
 
 ## Smoke test and full rerun
@@ -49,6 +49,7 @@ generated figures. Use `--stages` to select any of `synthetic`, `robustness`,
 | Supplementary K=3 and K=4 figures | `code/fig_K34_H0_H1.py` |
 | Real-data Stage 1 | `code/exp_realworld_robust.py`, `code/exp_categorical_pooled_remedy.py` |
 | Real-data Screen results | `code/exp_realworld_K2_rigorous.py` |
+| Xu-style and X-terminal CART discovery benchmarks | `code/exp_sp_benchmark_audit.py` |
 | Modified penalized-EM benchmark | `code/exp_kasahara_shimotsu_em_nine.py` |
 | Conventional EM--BIC benchmark | `code/exp_conventional_em_detection_nine.py` |
 | Nematode application figure | `code/fig_nematode_four_panel_review.py` |
@@ -58,14 +59,22 @@ each experiment's configuration JSON. Small last-digit differences can arise
 from BLAS, NumPy, SciPy, or numba versions; manuscript-scale decisions should
 be checked against the precomputed CSVs in `results/`.
 
-## Canonical result requiring refresh
+## Empirical SP convention
 
-The historical `results/kasahara_shimotsu_em_nine_summary_ca_fullx.csv`
-predates the reproducibility audit and reports `x_dim=1` and `a_n=2.2`; the old
-`--full-x` branch inadvertently retained only the first predictor. The branch
-is now corrected and its smoke test reports `x_dim=4` and `a_n=8.3`, as stated
-in the Supplementary Materials. Do not package the historical CA full-design
-CSV. Regenerate it with the full benchmark stage:
+The discovery and verification comparisons record SP when a strict majority
+of eligible within-stratum slopes reverse the pooled slope. This majority-sign
+rule is motivated by the practical relaxation of the all-strata condition in
+Alipourfard, Fennell, and Lerman (2018), *Can You Trust the Trend?*
+(https://doi.org/10.1145/3159652.3159684). The Adult Census analysis is not part
+of the eight-dataset manuscript comparison.
+
+## Corrected full-design California Housing benchmark
+
+The reproducibility audit found that the historical `--full-x` branch retained
+only the first California Housing predictor. The branch is corrected, and two
+independent manuscript-scale runs produced byte-identical summary and bootstrap
+files with `x_dim=4`, `a_n=8.3`, four starts, and 199 bootstrap samples. The
+canonical result is generated with the full benchmark stage:
 
 ```bash
 python reproducibility/run_all.py --full --stages benchmarks

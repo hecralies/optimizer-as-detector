@@ -746,7 +746,6 @@ JASA_LOADERS = [
     load_iris,
     load_penguins,
     load_atlanta,
-    load_adult,
     load_power,
     load_n_deposition,
     load_nematodes,
@@ -756,6 +755,7 @@ JASA_LOADERS = [
 LOADERS = JASA_LOADERS
 ARCHIVED_LOADERS = [
     *JASA_LOADERS,
+    load_adult,
     load_auto_mpg,
 ]
 

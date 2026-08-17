@@ -1,4 +1,4 @@
-"""Robust component-scale Stage 1 experiment for the nine JASA datasets.
+"""Robust component-scale Stage 1 experiment for the eight JASA datasets.
 
 The data definitions are imported from ``code/exp_realworld_K2_rigorous.py`` so
 that this rerun uses exactly the observations and focal regressions used by the
@@ -324,7 +324,7 @@ def multivariate_null_bootstrap(
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
-        description="Rerun Stage 1 on the nine JASA datasets with robust scale."
+        description="Rerun Stage 1 on the eight JASA datasets with robust scale."
     )
     parser.add_argument("--project-root", type=Path, required=True)
     parser.add_argument(

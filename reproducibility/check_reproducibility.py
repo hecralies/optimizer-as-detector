@@ -90,7 +90,7 @@ def main() -> None:
     parser.add_argument(
         "--loaders",
         action="store_true",
-        help="also parse all nine datasets (slower, especially CarbonMonitor)",
+        help="also parse all eight manuscript datasets (slower, especially CarbonMonitor)",
     )
     args = parser.parse_args()
     check_packages()
